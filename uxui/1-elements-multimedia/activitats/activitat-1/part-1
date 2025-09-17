@@ -1,6 +1,7 @@
 # Activitat 1 - Part 1
 Alex Ruiz - DAW2 | Disseny d'interfícies - Elements multimedia  
 
+
 ### Arxius originals:
 
 | Arxiu            | Tipus | Mida     |
@@ -18,7 +19,7 @@ Alex Ruiz - DAW2 | Disseny d'interfícies - Elements multimedia
 **Format millor**: PNG (24 o 32 bits)  
   - És un **logo**, amb formes simples i colors plans. PNG conserva la nitidesa i la transparència.  
 **Es pot reduir més?**  
-  - Sí, amb eines d’optimització sense pèrdua com TinyPNG o ImageOptim.  
+  - Sí, amb eines d’optimització sense pèrdua com TinyPNG.  
   - Una altra opció: vectoritzar-lo a SVG, seria més lleuger i escalable.  
 **Perdria qualitat?**  
   - Amb PNG o SVG **no**. Amb JPEG sí, perd nitidesa i apareixen artefactes.
@@ -29,7 +30,7 @@ Alex Ruiz - DAW2 | Disseny d'interfícies - Elements multimedia
 **Format millor**: JPEG  
   - Ideal per fotos amb molts detalls i degradats.  
 **Qualitat sense notar pèrdua**: 
-- 80–90% normalment no es nota.  
+- 80–90% no es nota.  
 **Es pot reduir més?**  
   - Sí, eliminant metadades o amb compressió sense pèrdua.  
 **Si guardem diverses vegades amb la mateixa compressió?**  
