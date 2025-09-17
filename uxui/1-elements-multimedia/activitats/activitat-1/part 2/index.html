@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Ruiz - Part 2</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        position: sticky;
+        font-size: 0.75rem;
+        top: 0;
+        background-color: #333;
+        color: white;
+        padding: 2px 0;
+        text-align: center;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        max-width: 1200px;   
+        margin: 20px auto;
+        gap: 2rem;
+    }
+
+    footer {
+        font-size: 0.75rem;
+        position: sticky;
+        bottom: 0;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2px 0;
+        width: 100%;
+        bottom: 0;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Activitat 1 - Part 2</h1>
+    </header>
+
+    <main>
+        <h2>Elements multimedia</h2>
+
+        <section>
+            <h3>Pluja d'estels:</h3>
+            <picture>
+                <source srcset="img/lg-screens/plujaEstels.webp" type="image/webp" media="(min-width: 1024px)">
+                <source srcset="img/md-screens/plujaEstels.webp" type="image/webp" media="(min-width: 768px)">
+                <source srcset="img/sm-screens/plujaEstels.webp" type="image/webp" media="(max-width: 767px)">
+                <source srcset="img/originals/plujaEstels.jpg" type="image/jpeg">
+                <img src="img/originals/plujaEstels.jpg" alt="Pluja d'estels">
+            </picture>
+        </section>
+
+        <section>
+            <h3>Concert:</h3>
+            <picture>
+                <source srcset="img/lg-screens/concert.webp" type="image/webp" media="(min-width: 1024px)">
+                <source srcset="img/md-screens/concert.webp" type="image/webp" media="(min-width: 768px)">
+                <source srcset="img/sm-screens/concert.webp" type="image/webp" media="(max-width: 767px)">
+                <source srcset="img/originals/concert.jpg" type="image/jpeg">
+                <img src="img/originals/concert.jpg" alt="Concert">
+            </picture>
+        </section>
+
+        <section>
+            <h3>Transparency:</h3>
+            <picture>
+                <source srcset="img/lg-screens/transparency.webp" type="image/webp" media="(min-width: 1024px)">
+                <source srcset="img/md-screens/transparency.webp" type="image/webp" media="(min-width: 768px)">
+                <source srcset="img/sm-screens/transparency.webp" type="image/webp" media="(max-width: 767px)">
+                <source srcset="img/originals/transparency.png" type="image/png">
+                <img src="img/originals/transparency.png" alt="Transparency">
+            </picture>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Alex Ruiz - DAW2</p>
+    </footer>
+</body>
+
+</html>
