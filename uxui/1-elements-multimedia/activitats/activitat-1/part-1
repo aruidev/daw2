@@ -1,0 +1,92 @@
+# Activitat 1 - Part 1
+Alex Ruiz - DAW2 | Disseny d'interfícies - Elements multimedia  
+
+### Arxius originals:
+
+| Arxiu            | Tipus | Mida     |
+| ---------------- | ----- | -------- |
+| concert.jpg      | JPG   | 1.536 KB |
+| plujaEstels.jpg  | JPG   | 6.395 KB |
+| transparency.png | PNG   | 2.479 KB |
+| Unity_logo.png   | PNG   | 8 KB     |
+
+--- 
+## 📌 Part 1
+
+### 1️⃣ Unity Logo  
+
+**Format millor**: PNG (24 o 32 bits)  
+  - És un **logo**, amb formes simples i colors plans. PNG conserva la nitidesa i la transparència.  
+**Es pot reduir més?**  
+  - Sí, amb eines d’optimització sense pèrdua com TinyPNG o ImageOptim.  
+  - Una altra opció: vectoritzar-lo a SVG, seria més lleuger i escalable.  
+**Perdria qualitat?**  
+  - Amb PNG o SVG **no**. Amb JPEG sí, perd nitidesa i apareixen artefactes.
+
+---
+### 2️⃣ Pluja d’estels i Concert  
+
+**Format millor**: JPEG  
+  - Ideal per fotos amb molts detalls i degradats.  
+**Qualitat sense notar pèrdua**: 
+- 80–90% normalment no es nota.  
+**Es pot reduir més?**  
+  - Sí, eliminant metadades o amb compressió sense pèrdua.  
+**Si guardem diverses vegades amb la mateixa compressió?**  
+  - El JPEG es degrada una mica cada vegada, és acumulatiu.
+
+
+---
+### 3️⃣ Transparency  
+
+**Format millor**: PNG-32 (o WebP si volem transparència i animació)  
+  - Manté la transparència i no perd qualitat.  
+**Si ho guardem en JPEG**  
+  - JPEG no admet transparència → el fons seria blanc o negre i apareixen artefactes.  
+**Si la web té fons blanc**  
+  - Encara així PNG-32 o WebP segueixen sent millor perquè no surten artefactes.
+
+---
+### Configuracions que donen millors resultats
+
+**Logos (Unity Logo)** → PNG-24/32  
+  - Nítid i transparent, pes baix si s’optimitza.  
+**Fotos (Pluja d’estels i Concert)** → JPEG 80–90%  
+  - Manté detalls i degradats, pes més baix que PNG.  
+**Transparències (Transparency)** → PNG-32  
+  - Canal alfa perfecte, sense artefactes.
+
+---
+### Taula d'imatges optimitzades:  
+
+| Arxiu            | Tipus | Mida original | Nova mida | Espai guanyat | Eina utilitzada                 |
+| ---------------- | ----- | ------------- | --------- | ------------- | ------------------------------- |
+| concert.jpg      | JPG   | 1.536 KB      | 282 KB    | 82%           | [TinyPNG](https://tinypng.com/) |
+| plujaEstels.jpg  | JPG   | 6.395 KB      | 3.51 MB   | 44%           | [I love IMG](iloveimg.com)      |
+| transparency.png | PNG   | 2.479 KB      | 181 KB    | 93%           | [TinyPNG](https://tinypng.com/) |
+| Unity_logo.png   | PNG   | 8 KB          | 5 KB      | 30%           | [TinyPNG](https://tinypng.com/) |
+
+---
+### Provant WebP  
+
+- **WebP sense pèrdua** → Logos i transparència: pesa menys que PNG i mateixa qualitat.  
+- **WebP amb pèrdua** → Fotos: menys pes que JPEG i visualment igual si la compressió és moderada.  
+
+**Conclusió:**  
+- WebP **sí que val la pena per web**: imatges més lleugeres, mantenen transparència i qualitat, compatible amb navegadors moderns.  
+- Recomanació:  
+  - Logos i transparències → WebP sense pèrdua  
+  - Fotos → WebP amb compressió moderada  
+  - Mantenir fallback en PNG/JPEG només si hi ha navegadors que no ho suportin com IE.
+
+---
+### Taula d'imatges convertides a WebP
+
+| Arxiu            | Tipus | Mida original | Nova mida | Espai guanyat | Eina utilitzada                    |
+| ---------------- | ----- | ------------- | --------- | ------------- | ---------------------------------- |
+| concert.jpg      | JPG   | 1.536 KB      | 754 KB    | 50.9%         | [Convertio](https://convertio.co/) |
+| plujaEstels.jpg  | JPG   | 6.395 KB      | 3.76 MB   | 41.2%         | [Convertio](https://convertio.co/) |
+| transparency.png | PNG   | 2.479 KB      | 804 KB    | 67.6%         | [Convertio](https://convertio.co/) |
+| Unity_logo.png   | PNG   | 8 KB          | 5.57 KB   | 30.4%         | [Convertio](https://convertio.co/) |
+
+
