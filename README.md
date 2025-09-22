@@ -1,19 +1,19 @@
 # DAW2  
 
-### frontend  
+### frontend
 M06 - Desenvolupament web en entorn client  
 
-### backend  
+### backend
 M07 - Desenvolupament web en entorn servidor  
 
-### deployment  
+### deployment
 M08 - Desplegament d'aplicacions web  
 
-### UX/UI  
+### UX/UI
 M09 - Disseny d'interfícies web  
 
-### SEO  
+### SEO
 MS002 - SEO
 
-### environment  
+### environment
 M0487 - Entorns de desenvolupament  
