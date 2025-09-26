@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Ruiz - Part 3</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        background-image: url("img/Fons.svg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    header {
+        position: sticky;
+        font-size: 0.75rem;
+        top: 0;
+        background-color: #333;
+        color: white;
+        padding: 2px 0;
+        text-align: center;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 20px auto;
+        gap: 2rem;
+    }
+
+    footer {
+        font-size: 0.75rem;
+        position: sticky;
+        bottom: 0;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2px 0;
+        width: 100%;
+        bottom: 0;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Activitat 1 - Part 3</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Gestió d'imatges per web - Part 3</h1>
+
+            <div class="section">
+                <h2>Palmera - Imatges amb &lt;img&gt;</h2>
+
+                <h3>Palmera sense mida definida:</h3>
+                <img src="img/PalmeraAlt.svg" alt="Palmera sense mida definida">
+
+                <h3>Palmera amb mida 150x150px:</h3>
+                <img src="img/PalmeraAlt2.svg" alt="Palmera amb mida definida" width="150" height="150">
+            </div>
+
+            <div class="section">
+                <h2>Logo - Imatges incrustades amb &lt;svg&gt;</h2>
+
+                <h3>Logo sense mida definida:</h3>
+                <svg width="200" height="200">
+                    <image href="img/InstagramAlt.svg" width="100%" height="100%" />
+                </svg>
+
+                <h3>Logo amb mida 150x150px:</h3>
+                <svg class="logo-fixed" width="150" height="150">
+                    <image href="img/InstagramAlt2.svg" width="100%" height="100%" />
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Alex Ruiz - DAW2</p>
+    </footer>
+</body>
+
+</html>
