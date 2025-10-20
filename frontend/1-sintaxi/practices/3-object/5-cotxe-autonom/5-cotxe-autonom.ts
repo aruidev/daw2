@@ -15,7 +15,3 @@ class CotxeAutonom {
 
 
 }
-
-let l: string[] = [];
-
-l.filter(x => x)

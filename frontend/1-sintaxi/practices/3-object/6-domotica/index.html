@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domótica</title>
+    <script defer src="domotica.js"></script>
+</head>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fafafa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        color: #444;
+        font-size: larger;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    #contenedor {
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 1rem;
+        height: 20rem;
+        overflow-y: auto;
+        margin: 0 auto;
+    }
+
+    #resumen {
+        background: #e0e0e0;
+        border: 1px solid #bbb;
+        padding: 1rem;
+        margin: 0 auto 1rem auto;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    aside {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: .25rem .5rem;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    button:active {
+        background-color: #004080;
+    }
+
+    input, select {
+        padding: .25rem .5rem;
+        border-radius: 4px;
+        border: 1px solid gray;
+    }
+
+    header {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: left;
+        color: gray;
+        padding: 2rem;
+        text-align: left;
+        width: fit-content;
+    }
+
+    .resumen-data {
+        font-weight: bold;
+        text-transform: capitalize;
+        color: #007BFF;
+    }
+</style>
+<body>
+    <header>
+        <h1>Domótica</h1>
+        <span>Alex Ruiz</span>
+        <span>DAW2</span>
+        <span>DWEC</span>
+    </header>
+    <main>
+        <section>
+            <h2>Sensores</h2>
+            <div>
+                <input type="checkbox" id="lluvia" />
+                <label for="lluvia">Lluvia</label>
+            </div>
+            <div>
+                <input type="checkbox" id="alarma" />
+                <label for="alarma">Alarma</label>
+            </div>
+            <div>
+                <input type="checkbox" id="humo" />
+                <label for="humo">Humo</label>
+            </div>
+            <div>
+                <label for="temperatura">Temperatura</label>
+                <input type="number" id="temperatura" min="-10" max="50" value="23" />
+            </div>
+        </section>
+
+        <section>
+            <h2>Presencia:</h2>
+            <div>
+                <select id="presencia">
+                    <option value="calle">Calle</option>
+                    <option value="recibidor">Recibidor</option>
+                    <option value="cocina">Cocina</option>
+                    <option value="salon">Salón</option>
+                    <option value="habitacion">Habitación</option>
+                    <option value="lavabo">Lavabo</option>
+                </select>
+            </div>
+        </section>
+
+        <aside>
+            <div>
+                <pre id="resumen"></pre>
+            </div>
+        </aside>
+
+        <section>
+            <h2>Estado</h2>
+            <div>
+                <button id="limpiar" onclick="limpiarContenedor()">Limpiar</button>
+            </div>
+            <br>
+            <pre id="contenedor"></pre>
+        </section>
+    </main>
+</body>
+</html>
