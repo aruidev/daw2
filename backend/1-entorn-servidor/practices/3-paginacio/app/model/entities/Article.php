@@ -6,10 +6,10 @@ class Article {
     private $cos;
 
     /**
-     * Constructor de l'objecte article
-     * @param int|null $id ID de l'article (null per a nous articles)
-     * @param string $titol Títol de l'article
-     * @param string $cos Cos de l'article
+     * Constructor de l'objecte article.
+     * @param int|null $id ID de l'article (null per a nous articles).
+     * @param string $titol Títol de l'article.
+     * @param string $cos Cos de l'article.
      * @return void
      */
     public function __construct($id = null, $titol = '', $cos = '') {

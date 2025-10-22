@@ -18,57 +18,57 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor\u0020per\u0020inicialitzar\u0020la\u0020connexi\u00F3\nCrea\u0020un\u0020objecte\u0020de\u0020connexi\u00F3\u0020a\u0020la\u0020base\u0020de\u0020dades",
+            "summary": "Constructor\u0020per\u0020inicialitzar\u0020la\u0020connexi\u00F3.",
             "url": "classes/ArticleDAO.html#method___construct"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003AgetAll\u0028\u0029",
             "name": "getAll",
-            "summary": "Obtenir\u0020tots\u0020els\u0020articles",
+            "summary": "Obtenir\u0020tots\u0020els\u0020articles.",
             "url": "classes/ArticleDAO.html#method_getAll"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003AgetById\u0028\u0029",
             "name": "getById",
-            "summary": "Obtenir\u0020un\u0020article\u0020per\u0020ID",
+            "summary": "Obtenir\u0020un\u0020article\u0020per\u0020ID.",
             "url": "classes/ArticleDAO.html#method_getById"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
-            "summary": "Insertar\u0020un\u0020nou\u0020article",
+            "summary": "Insertar\u0020un\u0020nou\u0020article.",
             "url": "classes/ArticleDAO.html#method_insert"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
-            "summary": "Actualitzar\u0020un\u0020article\u0020existent",
+            "summary": "Actualitzar\u0020un\u0020article\u0020existent.",
             "url": "classes/ArticleDAO.html#method_update"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003AinsertArticle\u0028\u0029",
             "name": "insertArticle",
-            "summary": "Insertar\u0020un\u0020nou\u0020article\u0020a\u0020partir\u0020d\u0027un\u0020objecte\u0020Article",
+            "summary": "Insertar\u0020un\u0020nou\u0020article\u0020a\u0020partir\u0020d\u0027un\u0020objecte\u0020Article.",
             "url": "classes/ArticleDAO.html#method_insertArticle"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003AupdateArticle\u0028\u0029",
             "name": "updateArticle",
-            "summary": "Actualitzar\u0020un\u0020article\u0020a\u0020partir\u0020d\u0027un\u0020objecte\u0020Article",
+            "summary": "Actualitzar\u0020un\u0020article\u0020a\u0020partir\u0020d\u0027un\u0020objecte\u0020Article.",
             "url": "classes/ArticleDAO.html#method_updateArticle"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "Eliminar\u0020un\u0020article\u0020per\u0020ID",
+            "summary": "Eliminar\u0020un\u0020article\u0020per\u0020ID.",
             "url": "classes/ArticleDAO.html#method_delete"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003Asearch\u0028\u0029",
             "name": "search",
-            "summary": "Cercar\u0020articles\u0020per\u0020terme\u0020en\u0020el\u0020t\u00EDtol",
+            "summary": "Cercar\u0020articles\u0020per\u0020terme\u0020en\u0020el\u0020t\u00EDtol.",
             "url": "classes/ArticleDAO.html#method_search"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "Comptar\u0020el\u0020nombre\u0020total\u0020d\u0027articles\u0020o\u0020articles\u0020que\u0020coincideixen\u0020amb\u0020un\u0020terme",
+            "summary": "Comptar\u0020el\u0020nombre\u0020total\u0020d\u0027articles\u0020o\u0020articles\u0020que\u0020coincideixen\u0020amb\u0020un\u0020terme.",
             "url": "classes/ArticleDAO.html#method_count"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003AgetPaginated\u0028\u0029",
             "name": "getPaginated",
-            "summary": "Obtenir\u0020articles\u0020paginats",
+            "summary": "Obtenir\u0020articles\u0020paginats.",
             "url": "classes/ArticleDAO.html#method_getPaginated"
         },                {
             "fqsen": "\\ArticleDAO\u003A\u003A\u0024conn",
@@ -83,7 +83,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Article\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor\u0020de\u0020l\u0027objecte\u0020article",
+            "summary": "Constructor\u0020de\u0020l\u0027objecte\u0020article.",
             "url": "classes/Article.html#method___construct"
         },                {
             "fqsen": "\\Article\u003A\u003AgetId\u0028\u0029",
@@ -193,7 +193,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\pageUrl\u0028\u0029",
             "name": "pageUrl",
-            "summary": "Genera\u0020la\u0020URL\u0020per\u0020a\u0020una\u0020p\u00E0gina\u0020espec\u00EDfica\nMant\u00E9\u0020els\u0020par\u00E0metres\u0020de\u0020p\u00E0gina\u0020actual,\u0020cerca\u0020i\u0020rows\u0020per\u0020p\u00E0gina",
+            "summary": "Genera\u0020la\u0020URL\u0020per\u0020a\u0020una\u0020p\u00E0gina\u0020espec\u00EDfica.",
             "url": "namespaces/default.html#function_pageUrl"
         },                {
             "fqsen": "\\",

@@ -1,24 +1,24 @@
 <?php
 /**
- * Component de paginació
+ * Component de paginació.
  * Espera els següents paràmetres: 
- * @param int $page Número de pàgina actual
- * @param int $totalPages Nombre total de pàgines
- * @param string $term Terme de cerca (default buit)
- * @param int $perPage Nombre d'elements per pàgina
+ * @param int $page Número de pàgina actual.
+ * @param int $totalPages Nombre total de pàgines.
+ * @param string $term Terme de cerca (default buit).
+ * @param int $perPage Nombre d'elements per pàgina.
  */
 if (!isset($page) || !isset($totalPages)) {
     return;
 }
 
 /**
- * Genera la URL per a una pàgina específica
- * Manté els paràmetres de pàgina actual, cerca i rows per pàgina
- * @param int $pageNumber Número de pàgina
- * @param string $term Terme de cerca
- * @param int|null $perPage Nombre d'elements per pàgina (default null)
- * @param string|null $order Ordre d'articles (ASC|DESC)(default 'ASC')
- * @return string URL generada
+ * Genera la URL per a una pàgina específica.
+ * Manté els paràmetres de pàgina actual, cerca i rows per pàgina.
+ * @param int $pageNumber Número de pàgina.
+ * @param string $term Terme de cerca.
+ * @param int|null $perPage Nombre d'elements per pàgina (default null).
+ * @param string|null $order Ordre d'articles (ASC|DESC)(default 'ASC').
+ * @return string URL generada.
  */
 function pageUrl($pageNumber, $term = '', $perPage = null, $order = null) {
     $queryParams = [];
@@ -26,7 +26,7 @@ function pageUrl($pageNumber, $term = '', $perPage = null, $order = null) {
     $queryParams['page'] = $pageNumber;
     if ($perPage !== null) $queryParams['perPage'] = $perPage;
     if ($order !== null) $queryParams['order'] = $order;
-    // Retornem la URL amb els paràmetres
+    // Retornem la URL amb els paràmetres.
     return 'list.php?' . http_build_query($queryParams);
 }
 ?>

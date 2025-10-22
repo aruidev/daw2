@@ -6,18 +6,18 @@ class ArticleDAO {
     private $conn;
 
     /**
-     * Constructor per inicialitzar la connexió
-     * Crea un objecte de connexió a la base de dades
-     * @throws Exception si la connexió falla
+     * Constructor per inicialitzar la connexió.
+     * Crea un objecte de connexió a la base de dades.
+     * @throws Exception si la connexió falla.
      */
     public function __construct() {
         $this->conn = Connexio::getConnection();
     }
 
     /**
-     * Obtenir tots els articles
-     * @return array Llista d'objectes Article
-     * @throws Exception si la consulta falla
+     * Obtenir tots els articles.
+     * @return array Llista d'objectes Article.
+     * @throws Exception si la consulta falla.
      */
     public function getAll() {
         $stmt = $this->conn->prepare("SELECT * FROM articles");
@@ -31,9 +31,9 @@ class ArticleDAO {
     }
 
     /**
-     * Obtenir un article per ID
-     * @param int $id ID de l'article
-     * @return Article|null L'objecte Article o null si no existeix
+     * Obtenir un article per ID.
+     * @param int $id ID de l'article.
+     * @return Article|null L'objecte Article o null si no existeix.
      */
     public function getById($id) {
         $stmt = $this->conn->prepare("SELECT * FROM articles WHERE id=?");
@@ -46,9 +46,9 @@ class ArticleDAO {
     }
 
     /**
-     * Insertar un nou article
-     * @param string $titol Títol de l'article
-     * @param string $cos Cos de l'article
+     * Insertar un nou article.
+     * @param string $titol Títol de l'article.
+     * @param string $cos Cos de l'article.
      * @return void
      */
     public function insert($titol, $cos) {
@@ -61,10 +61,10 @@ class ArticleDAO {
     }
 
     /**
-     * Actualitzar un article existent
-     * @param int $id ID de l'article a actualitzar
-     * @param string $titol Nou títol de l'article
-     * @param string $cos Nou cos de l'article
+     * Actualitzar un article existent.
+     * @param int $id ID de l'article a actualitzar.
+     * @param string $titol Nou títol de l'article.
+     * @param string $cos Nou cos de l'article.
      * @return void
      */
     public function update($id, $titol, $cos) {
@@ -77,8 +77,8 @@ class ArticleDAO {
     }
 
     /**
-     * Insertar un nou article a partir d'un objecte Article
-     * @param Article $article Objecte Article a inserir
+     * Insertar un nou article a partir d'un objecte Article.
+     * @param Article $article Objecte Article a inserir.
      * @return void
      */
     public function insertArticle(Article $article) {
@@ -92,8 +92,8 @@ class ArticleDAO {
     }
 
     /**
-     * Actualitzar un article a partir d'un objecte Article
-     * @param Article $article Objecte Article amb les dades actualitzades
+     * Actualitzar un article a partir d'un objecte Article.
+     * @param Article $article Objecte Article amb les dades actualitzades.
      * @return void
      */
     public function updateArticle(Article $article) {
@@ -106,8 +106,8 @@ class ArticleDAO {
     }
 
     /**
-     * Eliminar un article per ID
-     * @param int $id ID de l'article a eliminar
+     * Eliminar un article per ID.
+     * @param int $id ID de l'article a eliminar.
      * @return void
      */
     public function delete($id) {
@@ -120,9 +120,9 @@ class ArticleDAO {
     }
     
     /**
-     * Cercar articles per terme en el títol
-     * @param string $term Terme de cerca
-     * @return array Llista d'articles que coincideixen amb el terme
+     * Cercar articles per terme en el títol.
+     * @param string $term Terme de cerca.
+     * @return array Llista d'articles que coincideixen amb el terme.
      */
     public function search($term) {
         $stmt = $this->conn->prepare("SELECT * FROM articles WHERE titol LIKE ?");
@@ -136,9 +136,9 @@ class ArticleDAO {
     }
 
     /**
-     * Comptar el nombre total d'articles o articles que coincideixen amb un terme
-     * @param string $term Terme de cerca (default buit)
-     * @return int Nombre d'articles
+     * Comptar el nombre total d'articles o articles que coincideixen amb un terme.
+     * @param string $term Terme de cerca (default buit).
+     * @return int Nombre d'articles.
      */
     public function count($term = '') {
         if ($term === '') {
@@ -153,12 +153,12 @@ class ArticleDAO {
     }
 
     /**
-     * Obtenir articles paginats
-     * @param int $limit Nombre màxim d'articles per pàgina
-     * @param int $offset Desplaçament per a la pàgina actual
-     * @param string $order Ordre d'articles (ASC|DESC)(default 'ASC')
-     * @param string $term Terme de cerca (default buit)
-     * @return array Llista d'articles paginats
+     * Obtenir articles paginats.
+     * @param int $limit Nombre màxim d'articles per pàgina.
+     * @param int $offset Desplaçament per a la pàgina actual.
+     * @param string $order Ordre d'articles (ASC|DESC)(default 'ASC').
+     * @param string $term Terme de cerca (default buit).
+     * @return array Llista d'articles paginats.
      */
     public function getPaginated($limit, $offset, $term = '', $order = 'ASC') {
         $order = strtoupper($order) === 'DESC' ? 'DESC' : 'ASC';

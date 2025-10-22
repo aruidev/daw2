@@ -2,6 +2,21 @@
 
 Alex Ruiz | DAW2 | Servidor
 
+## Get started:
+
+### DB
+
+A la ubicació `db_schema`:
+
+- Executar `Pt03_Alex_Ruiz.sql` al gestor de base de dades per crear la DB.
+- S'inclou l'arxiu `test_data.sql` amb mocks d'articles per poder testejar ràpidament.
+
+### APP
+
+- Arrencar serveis de servidor i base de dades local.
+- Executar `index.php` normalment.
+- S'inclou documentació generada amb `PHPdocumentor`, es pot accedir fàcilment mitjançant el link a la pàgina principal.
+
 ## Pt03: Paginació
 
 ### Descripció
