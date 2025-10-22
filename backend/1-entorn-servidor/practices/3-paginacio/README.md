@@ -1,4 +1,74 @@
-## Projecte: Articles
+## Projecte: Articles  
+
+Alex Ruiz | DAW2 | Servidor
+
+## Pt03: Paginació
+
+### Descripció
+
+La paginació a aquest projecte permet:  
+
+- Llistar articles per pàgines (vista `list.php`).
+- Definir quants elements mostrar per pàgina amb un selector (`$perPage`): valors permesos 1, 5, 10.
+- Navegar entre pàgines (`$page`).
+- Cercar per títol mitjançant el paràmetre `$term`, sense perdre la cerca al canviar de pàgina.
+- Ordenar els resultats mitjançant el paràmetre `$order`, sense perdre l'ordre al canviar de pàgina.
+
+### Components que intervenen:  
+
+- `ArticleDAO`: mètodes per comptar i obtenir resultats limitats directament desde la base de dades.
+- `ArticleService`: funció que amb la lògica del càlcul d'offset i limit, retorna items + total.
+- `list.php`: Processa el GET, mostra llista d'articles i inclou el component de paginació.
+- `pagination.php`: Component amb la lògica de paginació que renderitza els controls i el selector `$perPage`.
+
+---
+
+### Implementació:  
+
+#### `ArticleDAO`
+
+S'afegeixen dos mètodes al DAO:  
+
+- `count($term = '')`
+- `getPaginated($limit, $offset, $term = '', $order = 'ASC')`  
+
+> Indiquem `$limit` i `$offset` per obtenir nomès les rows que mostrarem de la base de dades.
+> Es passa `$term` còm a paràmetre a les dues funcions per mantenir la funcionalitat de la cerca.
+> Es passa `$order` a la segona funció per indicar l'ordre (`ORDER BY`) a la query a la base de dades (default ASC).
+
+#### `ArticleService`  
+
+S'afegeix el següent mètode al servei:
+
+- `getArticlesPaginated($page = 1, $perPage = 5, $term = '', $order = 'ASC')`  
+
+> Paràmetres `$page` per indicar la pàgina i `$perPage` per indicar el nombre màxim de rows que obtenim a la pàgina actual.
+> Es passa `$term` còm a paràmetre per mantenir la funcionalitat de la cerca.
+> Es passa `$order` per mantenir l'ordre desitjat (default ASC).
+
+#### `list.php`
+
+Conté els paràmetres GET:
+
+- `$page`
+- `$totalPages`
+- `$term`
+- `$perPage`
+- `$order`
+
+#### `pagination.php`
+
+Component que espera els paràmetres de `list.php` i conté:
+
+- Funció `pageUrl($pageNumber, $term = '', $perPage = null, $order = null)`
+  - Genera enllaços pels controls: Anterior / números de pàgina (1, 2, 3...) / Següent.
+  - Construeix una URL vàlida per `list.php` passant els paràmetres de consulta.
+  - Passem `$pageNumber` per indicar la pàgina.
+  - Passem `$term`, `$perPage` i `$order` per mantenir els paràmetres seleccionats per l'usuari al canviar de pàgina (cerca, rows per pàgina i ordre).
+
+- Desplegable per canviar `$perPage` amb opcions 1, 5 o 10 articles per pàgina.
+
+> Important: el component s'inclou amb `include_once` o `require_once` per evitar error: `Cannot redeclare pageUrl()`.
 
 ---
 
@@ -30,8 +100,3 @@ La connexió es fa mitjançant PDO a `app/model/connection.php`, on es defineixe
 
 ### Resum
 El projecte separa la lògica en MVC i utilitza PDO per a la connexió segura a la base de dades.
-
----
-
-## Pt03: Paginació
-

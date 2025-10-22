@@ -88,5 +88,22 @@ class ArticleService {
     public function searchArticles($term) {
         return $this->dao->search($term);
     }
+
+    /**
+     * Obtenir articles paginats
+     * @param int $page Número de pàgina (default 1)
+     * @param int $perPage Nombre d'articles per pàgina (default 5)
+     * @param string $term Terme de cerca (default buit)
+     * @param string $order Ordre d'articles (ASC|DESC)(default 'ASC')
+     * @return array Llista d'articles i total d'articles
+     */
+    public function getArticlesPaginated($page = 1, $perPage = 5, $term = '', $order = 'ASC') {
+        $page = max(1, (int)$page);
+        $perPage = max(1, (int)$perPage);
+        $offset = ($page - 1) * $perPage;
+        $items = $this->dao->getPaginated($perPage, $offset, $term, $order);
+        $total = $this->dao->count($term);
+        return ['items' => $items, 'total' => $total];
+    }
 }
 ?>

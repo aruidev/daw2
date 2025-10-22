@@ -3,7 +3,7 @@
 <style>
     .footer {
         background-color: transparent;
-        color: inherit;
+        color: gray;
         text-align: center;
         padding: 0;
         position: relative;

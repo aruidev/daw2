@@ -17,12 +17,13 @@ input {
     display: flex;
     flex-direction: column;
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     overflow: auto;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: white;
+    gap: .5rem;
 }
 
 table {
@@ -30,7 +31,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 0.5rem 1rem;
     border: 1px solid #ddd;
 }
@@ -60,11 +62,13 @@ form textarea {
 }
 
 form button {
+    display: inline-flex;
     padding: 0.5rem 1rem;
     background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 form button:hover {
@@ -79,6 +83,7 @@ form button:hover {
     transition: background-color 0.3s, color 0.3s;
     width: fit-content;
     height: fit-content;
+    color: black;
 }
 
 .ghost-btn:hover {
@@ -109,4 +114,12 @@ form button:hover {
     border: 1px solid #ccc;
     border-radius: 3px;
     font-size: large;
+}
+
+.search-container input:hover {
+    background-color: #f1f1f1;
+}
+
+.search-container input:focus {
+    background-color: white;
 }

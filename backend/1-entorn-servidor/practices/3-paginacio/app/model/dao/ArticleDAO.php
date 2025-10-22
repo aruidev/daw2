@@ -134,5 +134,56 @@ class ArticleDAO {
         }
         return $articles;
     }
+
+    /**
+     * Comptar el nombre total d'articles o articles que coincideixen amb un terme
+     * @param string $term Terme de cerca (default buit)
+     * @return int Nombre d'articles
+     */
+    public function count($term = '') {
+        if ($term === '') {
+            $stmt = $this->conn->prepare("SELECT COUNT(*) AS cnt FROM articles");
+            $stmt->execute();
+        } else {
+            $stmt = $this->conn->prepare("SELECT COUNT(*) AS cnt FROM articles WHERE titol LIKE ?");
+            $stmt->execute(['%' . $term . '%']);
+        }
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return (int)$row['cnt'];
+    }
+
+    /**
+     * Obtenir articles paginats
+     * @param int $limit Nombre màxim d'articles per pàgina
+     * @param int $offset Desplaçament per a la pàgina actual
+     * @param string $order Ordre d'articles (ASC|DESC)(default 'ASC')
+     * @param string $term Terme de cerca (default buit)
+     * @return array Llista d'articles paginats
+     */
+    public function getPaginated($limit, $offset, $term = '', $order = 'ASC') {
+        $order = strtoupper($order) === 'DESC' ? 'DESC' : 'ASC';
+
+        if ($term === '') {
+            $sql = "SELECT * FROM articles ORDER BY id $order LIMIT :limit OFFSET :offset";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+            $stmt->execute();
+        } else {
+            $sql = "SELECT * FROM articles WHERE titol LIKE :term ORDER BY id $order LIMIT :limit OFFSET :offset";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':term', '%' . $term . '%', PDO::PARAM_STR);
+            $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $articles = [];
+        foreach ($rows as $row) {
+            $articles[] = new Article($row['id'], $row['titol'], $row['cos']);
+        }
+        return $articles;
+    }
 }
 ?>
