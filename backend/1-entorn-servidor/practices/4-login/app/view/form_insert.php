@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add item</title>
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+    <?php
+    // Include the header
+    include __DIR__ . '/layout/header.php';
+    ?>
+
+    <div class="container">
+        <h1>Add item</h1>
+        <form action="../controller/ItemController.php" method="POST">
+            <label>Title:</label><br>
+            <input type="text" name="title" required><br><br>
+            <label>Link:</label><br>
+            <textarea name="link" rows="5" cols="40" required></textarea><br><br>
+            <button type="submit" name="insert">Save</button>
+        </form>
+        <br>
+        <a class="ghost-btn" href="list.php">⬅️ Back</a>
+    </div>
+
+    <?php
+        // Include the footer
+        include __DIR__ . '/layout/footer.php';
+    ?>
+
+</body>
+</html>
