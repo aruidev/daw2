@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "target": "es2015",
-        "lib": ["ES2015", "DOM"],
-        "sourceMap": true,
+        "lib": ["es2016", "dom"],
+        "sourceMap": false,
         "noEmitOnError": true,
         "noImplicitAny": true,
         "strict": true

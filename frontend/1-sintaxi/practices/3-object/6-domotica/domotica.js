@@ -1,30 +1,5 @@
+"use strict";
 // HELPERS
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 /**
  * Función para obtener un elemento HTMLInputElement por su ID
  * @param id ID del elemento
@@ -39,7 +14,7 @@ function getHTMLInputElement(id) {
  * @param text Texto a agregar
  */
 function appendLine(element, text) {
-    var contenedor = document.getElementById(element);
+    const contenedor = document.getElementById(element);
     if (contenedor) {
         contenedor.innerHTML += text + '<br>';
         contenedor.scrollTop = contenedor.scrollHeight;
@@ -51,168 +26,106 @@ function appendLine(element, text) {
  * @param text Texto a escribir
  */
 function write(element, text) {
-    var contenedor = document.getElementById(element);
+    const contenedor = document.getElementById(element);
     if (contenedor) {
         contenedor.innerHTML = text;
     }
 }
 // CLASES
 // Sensores
-var Sensor = /** @class */ (function () {
-    function Sensor() {
-    }
-    return Sensor;
-}());
-var SensorTemperatura = /** @class */ (function (_super) {
-    __extends(SensorTemperatura, _super);
-    function SensorTemperatura() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    SensorTemperatura.prototype.obtenerValor = function () {
-        var el = getHTMLInputElement('temperatura');
+class Sensor {
+}
+class SensorTemperatura extends Sensor {
+    obtenerValor() {
+        const el = getHTMLInputElement('temperatura');
         return el ? parseFloat(el.value) : 0;
-    };
-    return SensorTemperatura;
-}(Sensor));
-var SensorLluvia = /** @class */ (function (_super) {
-    __extends(SensorLluvia, _super);
-    function SensorLluvia() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SensorLluvia.prototype.obtenerValor = function () {
-        var el = getHTMLInputElement('lluvia');
+}
+class SensorLluvia extends Sensor {
+    obtenerValor() {
+        const el = getHTMLInputElement('lluvia');
         return el ? el.checked : false;
-    };
-    return SensorLluvia;
-}(Sensor));
-var SensorPresencia = /** @class */ (function (_super) {
-    __extends(SensorPresencia, _super);
-    function SensorPresencia() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SensorPresencia.prototype.obtenerValor = function () {
-        var el = getHTMLInputElement('presencia');
+}
+class SensorPresencia extends Sensor {
+    obtenerValor() {
+        const el = getHTMLInputElement('presencia');
         return el ? el.value : 'calle';
-    };
-    return SensorPresencia;
-}(Sensor));
-var SensorHumo = /** @class */ (function (_super) {
-    __extends(SensorHumo, _super);
-    function SensorHumo() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SensorHumo.prototype.obtenerValor = function () {
-        var el = getHTMLInputElement('humo');
+}
+class SensorHumo extends Sensor {
+    obtenerValor() {
+        const el = getHTMLInputElement('humo');
         return el ? el.checked : false;
-    };
-    return SensorHumo;
-}(Sensor));
-var SensorHora = /** @class */ (function (_super) {
-    __extends(SensorHora, _super);
-    function SensorHora() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SensorHora.prototype.obtenerValor = function () {
+}
+class SensorHora extends Sensor {
+    obtenerValor() {
         return new Date().toLocaleTimeString();
-    };
-    return SensorHora;
-}(Sensor));
-var SensorAlarma = /** @class */ (function (_super) {
-    __extends(SensorAlarma, _super);
-    function SensorAlarma() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SensorAlarma.prototype.obtenerValor = function () {
-        var el = getHTMLInputElement('alarma');
+}
+class SensorAlarma extends Sensor {
+    obtenerValor() {
+        const el = getHTMLInputElement('alarma');
         return el ? el.checked : false;
-    };
-    return SensorAlarma;
-}(Sensor));
+    }
+}
 // Actuadores
-var Actuador = /** @class */ (function () {
-    function Actuador() {
-    }
-    return Actuador;
-}());
-var Alarma = /** @class */ (function (_super) {
-    __extends(Alarma, _super);
-    function Alarma() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Alarma.prototype.activar = function () { appendLine('contenedor', 'Alarma activada'); };
-    Alarma.prototype.desactivar = function () { appendLine('contenedor', 'Alarma desactivada.'); };
-    return Alarma;
-}(Actuador));
-var Calefaccion = /** @class */ (function (_super) {
-    __extends(Calefaccion, _super);
-    function Calefaccion() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Calefaccion.prototype.activar = function () { appendLine('contenedor', 'Calefacción activada.'); };
-    Calefaccion.prototype.desactivar = function () { appendLine('contenedor', 'Calefacción desactivada.'); };
-    return Calefaccion;
-}(Actuador));
-var AireAcondicionado = /** @class */ (function (_super) {
-    __extends(AireAcondicionado, _super);
-    function AireAcondicionado() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    AireAcondicionado.prototype.activar = function () { appendLine('contenedor', 'Aire acondicionado activado.'); };
-    AireAcondicionado.prototype.desactivar = function () { appendLine('contenedor', 'Aire acondicionado desactivado.'); };
-    return AireAcondicionado;
-}(Actuador));
-var Luces = /** @class */ (function (_super) {
-    __extends(Luces, _super);
-    function Luces() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Luces.prototype.activar = function () { appendLine('contenedor', 'Luces encendidas'); };
-    Luces.prototype.desactivar = function () { appendLine('contenedor', 'Luces apagadas'); };
-    return Luces;
-}(Actuador));
-var Persianas = /** @class */ (function (_super) {
-    __extends(Persianas, _super);
-    function Persianas() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Persianas.prototype.activar = function () { appendLine('contenedor', 'Persianas bajadas.'); };
-    Persianas.prototype.desactivar = function () { appendLine('contenedor', 'Persianas subidas.'); };
-    return Persianas;
-}(Actuador));
-var Reloj = /** @class */ (function () {
-    function Reloj() {
+class Actuador {
+}
+class Alarma extends Actuador {
+    activar() { appendLine('contenedor', 'Alarma activada'); }
+    desactivar() { appendLine('contenedor', 'Alarma desactivada.'); }
+}
+class Calefaccion extends Actuador {
+    activar() { appendLine('contenedor', 'Calefacción activada.'); }
+    desactivar() { appendLine('contenedor', 'Calefacción desactivada.'); }
+}
+class AireAcondicionado extends Actuador {
+    activar() { appendLine('contenedor', 'Aire acondicionado activado.'); }
+    desactivar() { appendLine('contenedor', 'Aire acondicionado desactivado.'); }
+}
+class Luces extends Actuador {
+    activar() { appendLine('contenedor', 'Luces encendidas'); }
+    desactivar() { appendLine('contenedor', 'Luces apagadas'); }
+}
+class Persianas extends Actuador {
+    activar() { appendLine('contenedor', 'Persianas bajadas.'); }
+    desactivar() { appendLine('contenedor', 'Persianas subidas.'); }
+}
+class Reloj {
+    constructor() {
         this.reloj = new SensorHora();
     }
-    Reloj.prototype.activar = function () { };
-    return Reloj;
-}());
+    activar() { }
+}
 // Estado previo para detectar cambios
-var estadoPrevio = null;
+let estadoPrevio = null;
 // Instancias de sensores y actuadores
-var sensorTemperatura = new SensorTemperatura();
-var sensorLluvia = new SensorLluvia();
-var sensorPresencia = new SensorPresencia();
-var sensorHumo = new SensorHumo();
-var sensorAlarma = new SensorAlarma();
-var alarma = new Alarma();
-var calefaccion = new Calefaccion();
-var aireAcondicionado = new AireAcondicionado();
-var luces = new Luces();
-var persianas = new Persianas();
-var reloj = new Reloj();
+const sensorTemperatura = new SensorTemperatura();
+const sensorLluvia = new SensorLluvia();
+const sensorPresencia = new SensorPresencia();
+const sensorHumo = new SensorHumo();
+const sensorAlarma = new SensorAlarma();
+const alarma = new Alarma();
+const calefaccion = new Calefaccion();
+const aireAcondicionado = new AireAcondicionado();
+const luces = new Luces();
+const persianas = new Persianas();
+const reloj = new Reloj();
 /**
  * Función con la lógica del sistema de domótica
  * @returns void
  */
 function sistemaDomotica() {
     // Obtener valores de los sensores
-    var temp = sensorTemperatura.obtenerValor();
-    var lluvia = sensorLluvia.obtenerValor();
-    var presenciaVal = sensorPresencia.obtenerValor();
-    var humoVal = sensorHumo.obtenerValor();
-    var alarmaVal = sensorAlarma.obtenerValor();
+    const temp = sensorTemperatura.obtenerValor();
+    const lluvia = sensorLluvia.obtenerValor();
+    const presenciaVal = sensorPresencia.obtenerValor();
+    const humoVal = sensorHumo.obtenerValor();
+    const alarmaVal = sensorAlarma.obtenerValor();
     // Estado por defecto basado en los sensores
-    var estadoDefault = {
+    const estadoDefault = {
         alarma: !!alarmaVal,
         calefaccion: temp < 20,
         aire: temp > 25,
@@ -224,12 +137,19 @@ function sistemaDomotica() {
     };
     // Inicializar estado previo si es la primera ejecución
     if (!estadoPrevio) {
-        estadoPrevio = __assign({}, estadoDefault);
+        estadoPrevio = Object.assign({}, estadoDefault);
     }
     // Array para registrar cambios
-    var cambios = [];
+    const cambios = [];
     // Mostrar resumen del estado actual
-    write('resumen', "Temperatura: <span class=\"resumen-data\">".concat(estadoDefault.temperatura, "\u00B0C</span>\nClimatizaci\u00F3n: <span class=\"resumen-data\">").concat(estadoDefault.calefaccion ? 'Calefacción' : estadoDefault.aire ? 'Aire acondicionado' : 'Apagado', "</span>\nLluvia: <span class=\"resumen-data\">").concat(lluvia ? 'Sí' : 'No', "</span>\nHumo: <span class=\"resumen-data\">").concat(estadoDefault.humo ? 'Sí' : 'No', "</span>\nLuces: <span class=\"resumen-data\">").concat(estadoDefault.luces !== 'calle' ? 'Encendidas' : 'Apagadas', "</span>\nPersianas: <span class=\"resumen-data\">").concat(estadoDefault.persianasBajadas ? 'Bajadas' : 'Subidas', "</span>\nPresencia: <span class=\"resumen-data\">").concat(estadoDefault.presencia, "</span>\nAlarma: <span class=\"resumen-data\">").concat(estadoDefault.alarma ? 'Activada' : 'Desactivada', "</span>"));
+    write('resumen', `Temperatura: <span class="resumen-data">${estadoDefault.temperatura}°C</span>
+Climatización: <span class="resumen-data">${estadoDefault.calefaccion ? 'Calefacción' : estadoDefault.aire ? 'Aire acondicionado' : 'Apagado'}</span>
+Lluvia: <span class="resumen-data">${lluvia ? 'Sí' : 'No'}</span>
+Humo: <span class="resumen-data">${estadoDefault.humo ? 'Sí' : 'No'}</span>
+Luces: <span class="resumen-data">${estadoDefault.luces !== 'calle' ? 'Encendidas' : 'Apagadas'}</span>
+Persianas: <span class="resumen-data">${estadoDefault.persianasBajadas ? 'Bajadas' : 'Subidas'}</span>
+Presencia: <span class="resumen-data">${estadoDefault.presencia}</span>
+Alarma: <span class="resumen-data">${estadoDefault.alarma ? 'Activada' : 'Desactivada'}</span>`);
     // COMPARACIÓN Y ACTUACIÓN DE ESTADOS CON REGISTRO DE CAMBIOS
     // Gestión de la alarma
     if (estadoDefault.alarma !== estadoPrevio.alarma) {
@@ -275,11 +195,11 @@ function sistemaDomotica() {
         }
         if (estadoDefault.luces !== 'calle') {
             luces.activar();
-            appendLine('contenedor', "en ".concat(estadoDefault.luces));
+            appendLine('contenedor', `en ${estadoDefault.luces}`);
         }
         if (estadoPrevio.luces != estadoDefault.luces && estadoPrevio.luces !== 'calle') {
             luces.desactivar();
-            appendLine('contenedor', "en ".concat(estadoPrevio.luces));
+            appendLine('contenedor', `en ${estadoPrevio.luces}`);
         }
         cambios.push('luces');
     }
@@ -293,22 +213,22 @@ function sistemaDomotica() {
     }
     // Si hubo cambios, agregar separador y timestamp.
     if (cambios.length > 0) {
-        var time = new Date().toLocaleTimeString();
-        appendLine("contenedor", "<span style=\"color: gray;\"><italic>".concat(time, "</italic></span>"));
-        appendLine("contenedor", "--------------------------------");
-        appendLine("contenedor", "<br>");
+        const time = new Date().toLocaleTimeString();
+        appendLine(`contenedor`, `<span style="color: gray;"><italic>${time}</italic></span>`);
+        appendLine(`contenedor`, `--------------------------------`);
+        appendLine(`contenedor`, `<br>`);
     }
     // actualizar estado previo
     estadoPrevio = estadoDefault;
 }
 // Inicialización al cargar la página, y ejecución continua cada segundo
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', () => {
     sistemaDomotica();
     setInterval(sistemaDomotica, 1000);
 });
 // Función para limpiar el contenedor de mensajes
 function limpiarContenedor() {
-    var contenedor = document.getElementById('contenedor');
+    const contenedor = document.getElementById('contenedor');
     if (contenedor) {
         contenedor.innerText = '';
     }

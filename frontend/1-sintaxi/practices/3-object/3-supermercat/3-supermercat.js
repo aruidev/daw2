@@ -1,4 +1,5 @@
-var articles = [
+"use strict";
+const articles = [
     { id: 1, name: "Poma", price: 0.5, stock: 100, dte: 0.1 },
     { id: 2, name: "Plàtan", price: 0.3, stock: 150, pes: 0.25 },
     { id: 3, name: "Taronja", price: 0.4, stock: 200, pes: 0.3 },

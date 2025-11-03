@@ -139,3 +139,6 @@ function renderUserTable(filterDni?: string) {
     });
 }
 
+renderUserTable();
+
+

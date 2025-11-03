@@ -1,21 +1,22 @@
-var itemInput = document.getElementById('item-input');
-var itemContainer = document.getElementById('item-container');
-var addItemBtn = document.getElementById('add-item');
-var removeItemBtn = document.getElementById('remove-item');
-var clearItemsBtn = document.getElementById('clear-items');
-var saveItemsBtn = document.getElementById('save-items');
-var itemsSet = new Set();
-var itemsHistoryKey = 'itemsSetHistory';
+"use strict";
+const itemInput = document.getElementById('item-input');
+const itemContainer = document.getElementById('item-container');
+const addItemBtn = document.getElementById('add-item');
+const removeItemBtn = document.getElementById('remove-item');
+const clearItemsBtn = document.getElementById('clear-items');
+const saveItemsBtn = document.getElementById('save-items');
+const itemsSet = new Set();
+const itemsHistoryKey = 'itemsSetHistory';
 function persistItemsHistory() {
-    var itemsArray = [];
-    itemsSet.forEach(function (it) { return itemsArray.push(it); });
+    const itemsArray = [];
+    itemsSet.forEach(it => itemsArray.push(it));
     localStorage.setItem(itemsHistoryKey, JSON.stringify(itemsArray));
 }
 function addItem() {
-    var item = itemInput.value.trim();
+    const item = itemInput.value.trim();
     if (item && !itemsSet.has(item)) {
         itemsSet.add(item);
-        var itemElement = document.createElement('div');
+        const itemElement = document.createElement('div');
         itemElement.textContent = item;
         itemContainer.appendChild(itemElement);
         itemInput.value = '';
@@ -25,11 +26,11 @@ function addItem() {
     }
 }
 function removeItem() {
-    var item = itemInput.value.trim();
+    const item = itemInput.value.trim();
     if (item && itemsSet.has(item)) {
         if (confirm('Are you sure you want to remove this item?')) {
             itemsSet.delete(item);
-            Array.from(itemContainer.children).forEach(function (child) {
+            Array.from(itemContainer.children).forEach(child => {
                 if (child.textContent === item) {
                     itemContainer.removeChild(child);
                 }
@@ -56,21 +57,21 @@ clearItemsBtn === null || clearItemsBtn === void 0 ? void 0 : clearItemsBtn.addE
 saveItemsBtn === null || saveItemsBtn === void 0 ? void 0 : saveItemsBtn.addEventListener('click', saveItems);
 function displayItems() {
     itemContainer.innerHTML = '';
-    itemsSet.forEach(function (item) {
-        var itemElement = document.createElement('div');
+    itemsSet.forEach(item => {
+        const itemElement = document.createElement('div');
         itemElement.textContent = item;
         itemContainer.appendChild(itemElement);
     });
 }
 function loadItemsHistory() {
-    var savedItems = localStorage.getItem(itemsHistoryKey);
+    const savedItems = localStorage.getItem(itemsHistoryKey);
     if (savedItems) {
-        var itemsArray = JSON.parse(savedItems);
-        itemsArray.forEach(function (item) { return itemsSet.add(item); });
+        const itemsArray = JSON.parse(savedItems);
+        itemsArray.forEach(item => itemsSet.add(item));
         displayItems();
     }
 }
-itemInput === null || itemInput === void 0 ? void 0 : itemInput.addEventListener('keydown', function (e) {
+itemInput === null || itemInput === void 0 ? void 0 : itemInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
         addItem();

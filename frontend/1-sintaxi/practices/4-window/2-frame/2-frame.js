@@ -1,3 +1,4 @@
+"use strict";
 /*
 2 - Comunicació amb un marc (<iframe>)
 Has de completar la funció setFrame(url, f), que es crida al clicar el botó Marc, de forma que mostri la següent informació en el frame f:
@@ -42,37 +43,37 @@ function saveName(name) {
     localStorage.setItem('name', name);
 }
 function getName() {
-    var name = localStorage.getItem('name');
-    var input = document.getElementById('input-name');
+    const name = localStorage.getItem('name');
+    const input = document.getElementById('input-name');
     if (input)
         input.value = name !== null && name !== void 0 ? name : 'No name saved';
     return name;
 }
 function infoWindow() {
-    var info = '<h2>Window Info</h2>';
+    let info = '<h2>Window Info</h2>';
     // Screen information
     info += '<h3>Screen Information:</h3>';
-    info += "<p>Width: ".concat(window.screen.width, "px</p>");
-    info += "<p>Height: ".concat(window.screen.height, "px</p>");
-    info += "<p>Available Width: ".concat(window.screen.availWidth, "px</p>");
-    info += "<p>Available Height: ".concat(window.screen.availHeight, "px</p>");
+    info += `<p>Width: ${window.screen.width}px</p>`;
+    info += `<p>Height: ${window.screen.height}px</p>`;
+    info += `<p>Available Width: ${window.screen.availWidth}px</p>`;
+    info += `<p>Available Height: ${window.screen.availHeight}px</p>`;
     // Navigator information
     info += '<h3>Navigator Information:</h3>';
-    info += "<p>User agent: ".concat(navigator.userAgent, "</p>");
-    info += "<p>Mobile device: ".concat(/Mobi|Android/i.test(navigator.userAgent) ? 'Yes' : 'No', "</p>");
-    info += "<p>Operating system: ".concat(navigator.platform, "</p>");
-    info += "<p>Browser language: ".concat(navigator.language, "</p>");
+    info += `<p>User agent: ${navigator.userAgent}</p>`;
+    info += `<p>Mobile device: ${/Mobi|Android/i.test(navigator.userAgent) ? 'Yes' : 'No'}</p>`;
+    info += `<p>Operating system: ${navigator.platform}</p>`;
+    info += `<p>Browser language: ${navigator.language}</p>`;
     // Current URL information
     info += '<h3>Current URL Information:</h3>';
-    info += "<p>Hash: ".concat(window.location.hash, "</p>");
-    info += "<p>Host: ".concat(window.location.host, "</p>");
-    info += "<p>Hostname: ".concat(window.location.hostname, "</p>");
-    info += "<p>Href: ".concat(window.location.href, "</p>");
-    info += "<p>Origin: ".concat(window.location.origin, "</p>");
-    info += "<p>Pathname: ".concat(window.location.pathname, "</p>");
-    info += "<p>Port: ".concat(window.location.port || 'default', "</p>");
-    info += "<p>Protocol: ".concat(window.location.protocol, "</p>");
-    info += "<p>Search: ".concat(window.location.search, "</p>");
+    info += `<p>Hash: ${window.location.hash}</p>`;
+    info += `<p>Host: ${window.location.host}</p>`;
+    info += `<p>Hostname: ${window.location.hostname}</p>`;
+    info += `<p>Href: ${window.location.href}</p>`;
+    info += `<p>Origin: ${window.location.origin}</p>`;
+    info += `<p>Pathname: ${window.location.pathname}</p>`;
+    info += `<p>Port: ${window.location.port || 'default'}</p>`;
+    info += `<p>Protocol: ${window.location.protocol}</p>`;
+    info += `<p>Search: ${window.location.search}</p>`;
     console.log(info);
     return info;
 }
