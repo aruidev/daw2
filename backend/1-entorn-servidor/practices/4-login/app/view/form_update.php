@@ -18,7 +18,7 @@ $item = $service->getItemById($_GET['id']);
     ?>
 
     <div class="container">
-        <h1>Editar item</h1>
+        <h1>Edit item</h1>
         <form action="../controller/ItemController.php" method="POST">
             <input type="hidden" name="id" value="<?= $item->getId() ?>">
             <label>Title:</label><br>
@@ -30,7 +30,10 @@ $item = $service->getItemById($_GET['id']);
             <button type="submit" name="update">Update</button>
         </form>
         <br>
-            <a class="ghost-btn" href="list.php">⬅️ Back</a>
+        <div class="actions">
+            <a class="ghost-btn" href="form_view.php?id=<?= $item->getId() ?>">⬅️ Back</a>
+            <a class="ghost-btn" href="list.php">🏠 Home</a>
+        </div>
     </div>
 
     <?php

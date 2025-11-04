@@ -42,8 +42,8 @@ $totalPages = (int)ceil($total / $perPage);
     <div class="container">
 
         <header class="list-header">
-            <h1>Item List</h1>
-            <a class="ghost-btn add-item-btn" href="form_insert.php">➕ Add item</a>
+            <h1>Items</h1>
+            <a class="primary-btn ghost-btn" href="form_insert.php">➕ Add item</a>
         </header>
         
 
@@ -55,13 +55,13 @@ $totalPages = (int)ceil($total / $perPage);
                     // Store the search term in the input
                     htmlspecialchars($term)
                 ?>">
-                <button type="submit" class="search-btn">🔎 Search</button>
+                <button type="submit" class="secondary-btn ghost-btn">🔎 Search</button>
                 <?php 
                     // Show clear button only if there is a search term
                     if ($term !== ''): ?>
-                        <a class="ghost-btn" href="list.php?perPage=<?= $perPage ?>">Clear</a>
+                        <a class="secondary-btn ghost-btn" href="list.php?perPage=<?= $perPage ?>">Clear</a>
                 <?php endif; ?>
-                <button class="ghost-btn" type="submit" name="order" title="Change order"
+                <button class="secondary-btn ghost-btn" type="submit" name="order" title="Change order"
                     value="<?= $order === 'ASC' ? 'DESC' : 'ASC' ?>">
                     <?= $order === 'ASC' ? '⬆️ Sort' : '⬇️ Sort' ?>
                 </button>

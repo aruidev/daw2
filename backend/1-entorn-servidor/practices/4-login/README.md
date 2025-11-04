@@ -1,4 +1,4 @@
-## Projecte: Articles  
+## Projecte: Items  
 
 Alex Ruiz | DAW2 | Servidor
 
@@ -9,7 +9,7 @@ Alex Ruiz | DAW2 | Servidor
 A la ubicació `db_schema`:
 
 - Executar `Pt04_Alex_Ruiz.sql` al gestor de base de dades per crear la DB.
-- S'inclou l'arxiu `test_data.sql` amb mocks d'articles per poder testejar ràpidament.
+- S'inclou l'arxiu `test_data.sql` amb mocks d'items per poder testejar ràpidament.
 
 ### APP
 
@@ -27,21 +27,21 @@ Pasos d'implementació:
   - `username`
   - `email`
   - `password_hash`
-- Afegida FK `user_id` a taula `articles` (Cada article es publicat per un usuari).
-- Decisió de negoci: `ON DELETE SET NULL` (Quan s'esborra un usuari, l'article **NO** s'elimina. Evitem cascade, implica que l'autor d'un article pot ser `NULL`).
+- Afegida FK `user_id` a taula `items` (Cada item es publicat per un usuari).
+- Decisió de negoci: `ON DELETE SET NULL` (Quan s'esborra un usuari, l'item **NO** s'elimina. Evitem cascade, implica que l'autor d'un item pot ser `NULL`).
 
 #### 2. Afegir botons de Login / Register al header.
 #### 3. Redirigir quan usuari no està loguejat.
 - Al accedir a `form_insert` o `form_update`, així com a intentar fer `delete`, `update` o `insert`, verificar user loguejat.  
 On ho comprovem?
 
-## Pt03: Paginació
+## Paginació
 
 ### Descripció
 
 La paginació a aquest projecte permet:  
 
-- Llistar articles per pàgines (vista `list.php`).
+- Llistar items per pàgines (vista `list.php`).
 - Definir quants elements mostrar per pàgina amb un selector (`$perPage`): valors permesos 1, 5, 10.
 - Navegar entre pàgines (`$page`).
 - Cercar per títol mitjançant el paràmetre `$term`, sense perdre la cerca al canviar de pàgina.
@@ -49,16 +49,16 @@ La paginació a aquest projecte permet:
 
 ### Components que intervenen:  
 
-- `ArticleDAO`: mètodes per comptar i obtenir resultats limitats directament desde la base de dades.
-- `ArticleService`: funció que amb la lògica del càlcul d'offset i limit, retorna items + total.
-- `list.php`: Processa el GET, mostra llista d'articles i inclou el component de paginació.
+- `ItemDAO`: mètodes per comptar i obtenir resultats limitats directament desde la base de dades.
+- `ItemService`: funció que amb la lògica del càlcul d'offset i limit, retorna items + total.
+- `list.php`: Processa el GET, mostra llista d'items i inclou el component de paginació.
 - `pagination.php`: Component amb la lògica de paginació que renderitza els controls i el selector `$perPage`.
 
 ---
 
 ### Implementació:  
 
-#### `ArticleDAO`
+#### `ItemDAO`
 
 S'afegeixen dos mètodes al DAO:  
 
@@ -69,11 +69,11 @@ S'afegeixen dos mètodes al DAO:
 > Es passa `$term` còm a paràmetre a les dues funcions per mantenir la funcionalitat de la cerca.
 > Es passa `$order` a la segona funció per indicar l'ordre (`ORDER BY`) a la query a la base de dades (default ASC).
 
-#### `ArticleService`  
+#### `ItemService`  
 
 S'afegeix el següent mètode al servei:
 
-- `getArticlesPaginated($page = 1, $perPage = 6, $term = '', $order = 'ASC')`  
+- `getItemsPaginated($page = 1, $perPage = 6, $term = '', $order = 'ASC')`  
 
 > Paràmetres `$page` per indicar la pàgina i `$perPage` per indicar el nombre màxim de rows que obtenim a la pàgina actual.
 > Es passa `$term` còm a paràmetre per mantenir la funcionalitat de la cerca.
@@ -99,25 +99,25 @@ Component que espera els paràmetres de `list.php` i conté:
   - Passem `$pageNumber` per indicar la pàgina.
   - Passem `$term`, `$perPage` i `$order` per mantenir els paràmetres seleccionats per l'usuari al canviar de pàgina (cerca, rows per pàgina i ordre).
 
-- Desplegable per canviar `$perPage` amb opcions 1, 5 o 10 articles per pàgina.
+- Desplegable per canviar `$perPage` amb opcions 1, 5 o 10 items per pàgina.
 
 > Important: el component s'inclou amb `include_once` o `require_once` per evitar error: `Cannot redeclare pageUrl()`.
 
 ---
 
-## Pt02: Connexions PDO
+## Connexions PDO
 
 ### Descripció
-Aplicació PHP que gestiona articles utilitzant el patró MVC i la connexió a una base de dades MySQL amb PDO i Prepared Statements.
+Aplicació PHP que gestiona items utilitzant el patró MVC i la connexió a una base de dades MySQL amb PDO i Prepared Statements.
 
 ### Estructura de carpetes
 - `index.php`: Punt d'entrada de l'aplicació.
-- `app/controller/`: Controladors que gestionen la lògica de les peticions (`ArticleController.php`).
+- `app/controller/`: Controladors que gestionen la lògica de les peticions (`ItemController.php`).
 - `app/model/connection.php`: Configuració i creació de la connexió PDO a la base de dades.
-- `app/model/dao/`: Accés a dades (DAO) per interactuar amb la base de dades (`ArticleDAO.php`).
-- `app/model/entities/`: Definició de les entitats (classe `Article.php`).
-- `app/model/services/`: Serveis que encapsulen la lògica de negoci (`ArticleService.php`).
-- `app/view/`: Vistes que mostren els formularis i llistats d'articles.
+- `app/model/dao/`: Accés a dades (DAO) per interactuar amb la base de dades (`ItemDAO.php`).
+- `app/model/entities/`: Definició de les entitats (classe `Item.php`).
+- `app/model/services/`: Serveis que encapsulen la lògica de negoci (`ItemService.php`).
+- `app/view/`: Vistes que mostren els formularis i llistats d'items.
 - `sql_seed/`: Fitxer SQL amb la seed per crear la base de dades.
 
 ### Connexió a la base de dades
@@ -126,10 +126,25 @@ La connexió es fa mitjançant PDO a `app/model/connection.php`, on es defineixe
 > Per simplificar, utilitzem un usuari root sense contrasenya assignada.
 
 ### Flux de l'aplicació
-1. L'usuari accedeix a `index.php`, que redirigeix a `app/view/list.php` (vista on es llistaràn els articles).
-2. El controlador (`ArticleController.php`) rep la petició i utilitza els serveis i DAO per obtenir o modificar dades.
+1. L'usuari accedeix a `index.php`, que redirigeix a `app/view/list.php` (vista on es llistaràn els items).
+2. El controlador (`ItemController.php`) rep la petició i utilitza els serveis i DAO per obtenir o modificar dades.
 3. Les DAO utilitzen la connexió PDO per accedir a la base de dades.
 4. El controlador passa les dades a la vista (`app/view/`), que mostra el resultat (llistat, formulari d'inserció/actualització, etc.).
 
 ### Resum
 El projecte separa la lògica en MVC i utilitza PDO per a la connexió segura a la base de dades.
+
+---
+
+## Entity
+
+L'aplicació té l'objectiu de poder gestionar `items` modelats amb les següents propietats:  
+
+- `id`
+- `title`
+- `description`
+- `link`
+- `created_at`
+- `updated_at`
+
+---

@@ -16,9 +16,11 @@
         <h1>Add item</h1>
         <form action="../controller/ItemController.php" method="POST">
             <label>Title:</label><br>
-            <input type="text" name="title" required><br><br>
+            <input class="input-field" type="text" name="title" required><br><br>
+            <label>Description:</label><br>
+            <textarea class="input-field" name="description" rows="5" cols="40" required></textarea><br><br>
             <label>Link:</label><br>
-            <textarea name="link" rows="5" cols="40" required></textarea><br><br>
+            <input class="input-field" type="url" name="link" required><br><br>
             <button type="submit" name="insert">Save</button>
         </form>
         <br>
