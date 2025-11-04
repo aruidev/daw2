@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LinkHub</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <main>
+        <div id="dashboard"></div>
+    </main>
+    <div id="footer"></div>
+
+    <script type="module">
+        import { Header } from '../layout/header/header.js';
+        import { Footer } from '../layout/footer/footer.js';
+        import { Dashboard } from '../components/dashboard.js';
+
+        document.getElementById('header').innerHTML = Header();
+        document.getElementById('footer').innerHTML = Footer();
+        document.getElementById('dashboard').innerHTML = Dashboard();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main>
+        <div id="hero"></div>
+        <div id="img-board"></div>
+        <div id="faq"></div>
+    </main>
+    <div id="footer"></div>
+
+    <script type="module">
+        import { Header } from './app/layout/header/header.js';
+        import { Footer } from './app/layout/footer/footer.js';
+        import { Hero } from './app/components/hero.js';
+        import { ImgBoard } from './app/components/img-board.js';
+        import { Faq } from './app/components/faq.js';
+
+        document.getElementById('header').innerHTML = Header();
+        document.getElementById('footer').innerHTML = Footer();
+        document.getElementById('hero').innerHTML = Hero();
+        document.getElementById('img-board').innerHTML = ImgBoard();
+        document.getElementById('faq').innerHTML = Faq();
+    </script>
+</body>
+
+</html>

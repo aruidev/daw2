@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+main {
+    padding: 20px 10rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
+/* header */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header .nav-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+
+.header .nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding: 0.35rem 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: #e2e2e2;
+}
+
+.nav-link-active {
+    background-color: #e2e2e2;
+}
+
+.header .auth-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* buttons */
+
+.btn {
+    border: 1px solid black;
+    padding: 0.40rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #252525;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: black;
+}
+
+.btn-secondary {
+    background-color: #e2e2e2;
+    color: black;
+}
+
+.btn-secondary:hover {
+    background-color: #cfcfcf;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+}
+
+.footer .social-links,
+.footer .legal-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .social-links {
+    gap: 20px;
+}
+
+.footer .legal-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+/* hero */
+
+.hero-container {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #555555;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}
+
