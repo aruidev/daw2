@@ -32,7 +32,7 @@ function recomendarContenido(usuario) {
         const interseccion = new Set([...vistoPorUsuario].filter(x => vistoPorOtroUsuario.has(x)));
         // Si la intersección tiene al menys 3 elements, consideramos que este altre usuari
         // té gustos suficientement parecidos com per prendre recomanacions.
-        if (interseccion.size >= 3) {
+        if (interseccion.size >= 2) {
             // Recorrem tot el que ha vist el altre usuari i afegim a recomendacions
             // aquelles que el usuari objectiu encara no ha vist.
             vistoPorOtroUsuario.forEach(peli => {
@@ -45,3 +45,10 @@ function recomendarContenido(usuario) {
     // Devolvemos el Set amb les recomanacions (sense duplicats).
     return recomendaciones;
 }
+// Ejemplo de uso:
+const recomendacionesParaAlice = recomendarContenido("Alice");
+console.log("Recomendaciones para Alice:", recomendacionesParaAlice);
+const recomendacionesParaBob = recomendarContenido("Bob");
+console.log("Recomendaciones para Bob:", recomendacionesParaBob);
+const recomendacionesParaCharlie = recomendarContenido("Charlie");
+console.log("Recomendaciones para Charlie:", recomendacionesParaCharlie);
