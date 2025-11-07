@@ -68,8 +68,7 @@ function getUser() {
         alert(`No user found with DNI ${dni}`);
         return;
     }
-
-    // Mostra només l'usuari cercat a la taula
+    
     renderUserTable(dni);
     nameInput.value = user.name;
     lastNameInput.value = user.lastName;
