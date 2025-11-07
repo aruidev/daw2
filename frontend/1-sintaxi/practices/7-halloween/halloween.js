@@ -5,7 +5,7 @@ function main() {
     const SIMBOLS = "🎃💀👹👺👻🧙🧛🧟🪔🦉🍬🍭🔮🎭🕯👿👽🤡🤖👾🧚🧝👸🏚🐞🛸";
     const LLETRES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    const codi = "🤖👹🎃🤡🐞 🧟🎃🍭🍭🕯👸👻👻🎭 !!!";
+    let codi = "🤖👹🎃🤡🐞 🧟🎃🍭🍭🕯👸👻👻🎭 !!!";
 
     const simArr = [...SIMBOLS];  
     const codiArr = [...codi];
